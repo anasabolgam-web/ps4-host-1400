@@ -1,46 +1,55 @@
 <!doctype html>
-<html class="landing" lang="ar" manifest="cache.appcache">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>المتميز | PS4 HOST 14.00</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="branding.css" />
-  </head>
-  <body>
-    <!-- Keep original navigation and JavaScript IDs unchanged. -->
-    <div id="brand"><b>المتميز | PS4 HOST 14.00</b></div>
-
-    <div class="shell">
-      <img class="meme" src="momtaz-logo-v2.jpg"
-           alt="شعار المتميز لصيانة الهواتف والبلايستيشن" />
-
-      <main class="panel" dir="rtl">
-        <p class="lede">إصدارات PS4 المدعومة: 12.00 &ndash; 14.00</p>
-
-        <form class="pick" id="pick">
-          <label class="opt">
-            <input type="radio" name="payload" value="hen" />
-            <span>تشغيل PS4-HEN</span>
-          </label>
-          <label class="opt">
-            <input type="radio" name="payload" value="goldhen" checked />
-            <span>تشغيل GoldHEN</span>
-          </label>
-
-          <label class="opt opt-auto">
-            <input type="checkbox" id="auto" />
-            <span>التشغيل التلقائي</span>
-          </label>
-
-          <button class="btn" type="submit">بدء التشغيل</button>
-          <p class="count" id="count"></p>
-          <p class="count" id="cache" aria-live="polite"></p>
-        </form>
-      </main>
-    </div>
-
-    <p class="byline">by well0nez/m0zz</p>
-    <script src="launch.js"></script>
-  </body>
+<html lang="ar" dir="rtl" manifest="cache.appcache">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المتميز | PS4 HOST 9.00–14.00</title>
+  <link rel="stylesheet" href="hub.css">
+</head>
+<body>
+  <div id="brand"><b>المتميز</b><span>PS4 MULTI-FIRMWARE HOST</span></div>
+  <main class="layout">
+    <section class="identity" aria-label="هوية المتميز">
+      <img src="momtaz-logo-v2.jpg" alt="المتميز لصيانة الهاتف النقال والبلايستيشن واكسسواراته" width="340" height="340">
+      <p>منصة واحدة لإصدارات PlayStation 4</p>
+      <strong>9.00 – 14.00</strong>
+      <small>استضافة محلية قابلة للاستخدام دون إنترنت بعد تحميل الملفات اللازمة لكل إصدار</small>
+    </section>
+    <section class="console" aria-label="تحديد إصدار نظام PS4">
+      <h1>اختر إصدار النظام</h1>
+      <p class="intro">لن يبدأ أي استغلال تلقائيًا من هذه الصفحة. اختر الإصدار المطابق لما يظهر في معلومات النظام.</p>
+      <div id="detected" class="detected">يجري فحص إصدار الجهاز…</div>
+      <label for="firmware">إصدار برنامج النظام (System Software)</label>
+      <select id="firmware" name="firmware">
+        <option value="">— اختر الإصدار —</option>
+        <optgroup label="9.xx — PSFree + Lapse">
+          <option value="9.00">9.00</option><option value="9.03">9.03</option><option value="9.04">9.04</option>
+          <option value="9.50">9.50</option><option value="9.51">9.51</option><option value="9.60">9.60</option>
+        </optgroup>
+        <optgroup label="10.xx / 11.00–11.02 — CSSFontFace">
+          <option value="10.00">10.00</option><option value="10.01">10.01</option><option value="10.50">10.50</option>
+          <option value="10.70">10.70</option><option value="10.71">10.71</option><option value="11.00">11.00</option>
+          <option value="11.02">11.02</option>
+        </optgroup>
+        <optgroup label="11.50–11.52 — Slopkit">
+          <option value="11.50">11.50</option><option value="11.52">11.52</option>
+        </optgroup>
+        <optgroup label="12.00–14.00 — Afterglow">
+          <option value="12.00">12.00</option><option value="12.02">12.02</option>
+          <option value="12.50">12.50</option><option value="12.52">12.52</option>
+          <option value="13.00">13.00</option><option value="13.02">13.02</option>
+          <option value="13.04">13.04</option><option value="13.50">13.50</option>
+          <option value="13.52">13.52</option><option value="14.00">14.00</option>
+        </optgroup>
+      </select>
+      <div class="engine"><span>المحرك:</span> <strong id="engine">لم يُحدَّد</strong></div>
+      <p class="note" id="explain">سنحدد ملفات التشغيل الملائمة للإصدار الذي تختاره.</p>
+      <button type="button" id="open" disabled>فتح واجهة الإصدار المحدد</button>
+      <div id="cacheStatus" class="cache" aria-live="polite">التحميل دون إنترنت: لم يتم التحقق بعد</div>
+      <p class="warning">تنبيه: اختيار محرك مناسب لا يضمن نجاح الاستغلال. لا تحدّث النظام، ولا تستخدم ملفات إصدار مختلف.</p>
+    </section>
+  </main>
+  <footer>المتميز — تصميم الاستضافة | مشاريع التشغيل الأصلية: ps4aio / Afterglow — تُحفظ حقوق المطورين.</footer>
+  <script src="hub.js"></script>
+</body>
 </html>

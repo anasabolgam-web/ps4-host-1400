@@ -1,0 +1,11 @@
+Al-Momtaz PS4 Multi-Firmware Host — source acknowledgements
+
+This upgrade combines the user's original Afterglow-based site with firmware-specific branches from the public community project ps4aio. These components are authored by third parties; Al-Momtaz branding does not claim authorship of the exploit code.
+
+Original Afterglow: https://github.com/well0nez/afterglow-web (AGPL-3.0)
+User's existing branded Afterglow fork snapshot: https://github.com/anasabolgam-web/ps4-host-1400/tree/fad84fc4151f75fb9e30d641026abdb55591abac
+Community all-in-one host: https://github.com/eddieygaming/ps4aio/tree/caf8efbeb078a54dbe1c93b48bccf93569ef9a09
+Underlying PSFree/Lapse/CSSFontFace projects retain their original attributions and licensing notices in their respective source files. Respect their licenses when redistributing.
+
+No exploit code or payload binary is authored by this upgrade; the build script fetches the exact pinned public upstream snapshots.
+The author does not guarantee compatibility or stability on any PS4. Avoid automatic firmware upgrades. Back up valuable data and only use on a console you own and are authorized to modify.
