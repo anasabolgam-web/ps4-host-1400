@@ -1,7 +1,7 @@
 CACHE MANIFEST
 appcache_manifest_generator.py #248b710a0115c81c56f5620bc8b34b31e30ffbba685351846e22161cf25469b8
 cache.manifest #e2972e70a5ecbe268236341bd2074197711596135bf3c7cded56b26cbba7c234
-index.html #ce3c651d2e47c76199ad
+index.html #80a046b0649e98e74172
 includes/script.js #6b528f695e6a21c9a50c
 src/lapse.js #8a3841c61ff8219c9b996672da74dbf65a57f5265265d6665c30449a14b4aeae
 src/loader.js #57f9bce0340bb5c7d59b24a5370c86300063edec435ece75c1491e55dbd980c8
@@ -36,3 +36,4 @@ src/ps4/patches/950.bin #d3d536b07cf9f07d91a18472255f71d83233d6b094628ced474477c
 ../../momtaz-logo-v2.jpg
 
 # Al-Momtaz manual-only patch v1 - 2026-11-09
+# Al-Momtaz central manual button v1
