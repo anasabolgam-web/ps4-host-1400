@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="cache.manifest">
+<html lang="ar" manifest="cache.manifest">
 
 <head>
   <meta charset="UTF-8">
@@ -252,38 +252,76 @@
       .main-title { font-size: 30px; }
     }
   </style>
+<style id="momtaz-manual-brand">
+  :root {
+    --bg: #100e11; --panel: #1d1218; --panel-raised: #271820;
+    --line: #713440; --line-bright: #f05261;
+    --text: #faf7f7; --muted: #dec0c7; --dim: #bd99a2;
+    --green: #fb5869; --green-soft: #dc344b;
+  }
+  body { background-color: #110d12; background-image: none; }
+  .momtaz-manual-brand {
+    display: flex; align-items: center; justify-content: center;
+    gap: 18px; margin: 0 0 14px; padding: 12px 20px;
+    border: 1px solid #a93444; border-radius: 13px;
+    background: #221117; color: white; text-align: right;
+  }
+  .momtaz-manual-brand img {
+    width: 105px; height: 105px; border-radius: 50%;
+    border: 3px solid #d42a39; background: #fff;
+  }
+  .momtaz-manual-brand strong { display: block; color: #fff; font-size: 26px; }
+  .momtaz-manual-brand span { display: block; margin-top: 8px; color: #f6b6c1; font-size: 15px; }
+  .header-section, .controls-section, .status-container {
+    background: #1a1117; border-color: #713440;
+  }
+  .header-section::before { color: #fa6473; }
+  .header-section::after { content: "SYS / MANUAL ONLY"; color: #ecb3bd; }
+  #jeilbrek { background: #b6172e; color: #fff; border-color: #fc6276; }
+  #jeilbrek:focus, #jeilbrek:hover { background: #da243e; color: white; border-color: #fff; }
+  .chain-option { border-color: #793443; }
+  @media(max-width: 620px) {
+    .momtaz-manual-brand { padding: 10px; gap: 10px; }
+    .momtaz-manual-brand img { width: 75px; height: 75px; }
+    .momtaz-manual-brand strong { font-size: 20px; }
+    .momtaz-manual-brand span { font-size: 12px; }
+  }
+</style>
 </head>
 
 <body>
   <main class="container">
+    <div class="momtaz-manual-brand" dir="rtl">
+      <img src="../../momtaz-logo-v2.jpg" width="105" height="105" alt="شعار المتميز" />
+      <div>
+        <strong>المتميز | PS4 HOST</strong>
+        <span>CSSFontFace — تشغيل يدوي فقط، دون تشغيل تلقائي</span>
+      </div>
+    </div>
     <section class="header-section">
-      <h1 class="main-title">Play Station 4 CSSFontFace</h1>
-      <p class="subtitle">Offline CSSFontFace Auto GoldHEN</p>
+      <h1 class="main-title">CSSFontFace | GoldHEN</h1>
+      <p class="subtitle" dir="rtl">التشغيل اليدوي فقط — دون تشغيل تلقائي</p>
       <p class="version-info">CSSFontFace PS4 FW 6.00–11.02 GoldHEN v2.4b18.5</p>
       <p id="UA">Running on:</p>
       <p id="cache">Checking offline cache...</p>
     </section>
 
     <section class="status-container">
-      <div class="status-label">Exploit output</div>
+      <div class="status-label">سجل التنفيذ | Exploit output</div>
       <pre id="console">Ready. Awaiting execution...</pre>
     </section>
 
     <section class="controls-section">
-      <div class="section-title">Exploit control</div>
+      <div class="section-title">التحكم في التشغيل | Exploit control</div>
       <form id="kernel-options">
-        <span class="chain-label">Kernel chain</span>
+        <span class="chain-label">محرك النواة: Lapse</span>
         <div class="chain-options">
           <input type="radio" name="kernel" id="netctrl-exploit" value="netctrl" disabled>
           <label class="chain-option" for="netctrl-exploit">Poops</label>
           <input type="radio" name="kernel" id="lapse-exploit" value="lapse" checked>
           <label class="chain-option" for="lapse-exploit">Lapse</label>
         </div>
-        <button id="jeilbrek" type="button">Jailbreak</button>
-        <div class="auto-jb">
-          <label class="auto-jb-label" for="autoJbInput" id="autoJbLabel">Auto Jailbreak</label>
-          <input id="autoJbInput" type="checkbox">
-        </div>
+        <button id="jeilbrek" type="button">تشغيل يدوي | Jailbreak</button>
       </form>
     </section>
   </main>

@@ -1,103 +1,43 @@
-let timerId = null; 
-const label = document.getElementById('autoJbLabel');
-const checkbox = document.getElementById('autoJbInput');
-const jeilbrekBtn = document.getElementById('jeilbrek');
-const UAElement = document.getElementById("UA");
+/* Al-Momtaz: CSSFontFace stable manual-only controller.
+   The original exploitation runtime (src/*) is deliberately unchanged. */
+var exploitChain = "lapse";
+var jeilbrekBtn = document.getElementById("jeilbrek");
+var lapseRadio = document.getElementById("lapse-exploit");
+var kexForm = document.getElementById("kernel-options");
+var UAElement = document.getElementById("UA");
 
-const storedAutoJb = localStorage.getItem("autoJb");
-let autoJbValue = storedAutoJb !== null ? storedAutoJb === "true" : false;
+try {
+  localStorage.setItem("autoJb", "false");
+  localStorage.setItem("exploitChain", "lapse");
+} catch (e) {}
 
-// choose one of kernel exploits
-var exploitChain = localStorage.getItem("exploitChain") || "lapse";
-const netctrlRadio = document.getElementById("netctrl-exploit");
-const lapseRadio = document.getElementById("lapse-exploit");
-const kexForm = document.getElementById('kernel-options');
+if (UAElement) UAElement.textContent += " " + navigator.userAgent;
+if (lapseRadio) lapseRadio.checked = true;
 
-// Show user agent
-UAElement.innerText += " " + navigator.userAgent;
-
-kexForm.addEventListener("change", function (event) {
-    localStorage.setItem("exploitChain", event.target.value);
-    exploitChain = event.target.value;
-});
-
-// jailbreak execution
-jeilbrekBtn.addEventListener("click", function (e){
-    jeilbrekBtn.disabled = true;
-    stopInterval();
-    doJb();
-});
-
-checkbox.addEventListener('change', function () {
-    localStorage.setItem("autoJb", checkbox.checked);
-    if (checkbox.checked == true && jeilbrekBtn.disabled == false) {
-        jailbreakCountdown();
-        return;
-    }
-
-    stopInterval();
-});
-
-function stopInterval(){
-    if (timerId !== null) {
-        clearInterval(timerId);
-        timerId = null;
-    }
-    label.textContent = "Auto Jailbreak";
+if (kexForm) {
+  kexForm.addEventListener("change", function () {
+    exploitChain = "lapse";
+    if (lapseRadio) lapseRadio.checked = true;
+  }, false);
 }
-
-function jailbreakCountdown() {   
-    stopInterval();
-
-    let countdown = 5;
-    label.textContent = `Auto Jailbreaking in: ${countdown}`;
-    timerId = setInterval(() => {
-        countdown--;
-        label.textContent = `Auto Jailbreaking in: ${countdown}`;
-
-        if (countdown < 0) {
-            jeilbrekBtn.disabled = true; 
-            clearInterval(timerId);
-            timerId = null;
-            label.textContent = 'Executing';
-            doJb();
-        }
-    }, 1000);
+if (jeilbrekBtn) {
+  jeilbrekBtn.addEventListener("click", function () {
+    if (jeilbrekBtn.disabled) return;
+    jeilbrekBtn.disabled = true;
+    doJb();
+  }, false);
 }
 
 function cacheProgress(e) {
-    var Percent = (Math.round(e.loaded / e.total * 100));
-    document.title = "Caching: " + Percent + "%";
+  if (e && e.total) document.title = "Caching: " + Math.round(e.loaded/e.total*100) + "%";
 }
-
 function displayCacheProgress() {
-    setTimeout(function () {
-        // show a tick
-        document.title = "\u2713";
-    }, 1000);
-    setTimeout(function () {
-        // location.reload();
-        document.title = "CSSFontFace exploit";
-    }, 3000);
+  document.title = "Offline cache updated";
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Cache handling
-    if (window.applicationCache) {
-        window.applicationCache.addEventListener("progress", cacheProgress, false);
-        window.applicationCache.oncached = function (e) { displayCacheProgress(); };
-        window.applicationCache.onupdateready = function (e) { displayCacheProgress(); };
-    }
-
-    // choose prefered exploit chain
-    if (exploitChain == "netctrl") {
-        netctrlRadio.checked = true;
-    } else {
-        lapseRadio.checked = true;
-    }
-
-    // apply autojb localStorage value
-    checkbox.checked = autoJbValue;
-
-    if (autoJbValue) jailbreakCountdown();
-});
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.applicationCache) {
+    window.applicationCache.addEventListener("progress", cacheProgress, false);
+    window.applicationCache.addEventListener("cached", displayCacheProgress, false);
+    window.applicationCache.addEventListener("updateready", displayCacheProgress, false);
+  }
+}, false);
